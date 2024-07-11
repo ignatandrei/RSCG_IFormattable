@@ -20,7 +20,7 @@
 	<PropertyGroup>
 		<PackAsTool>false</PackAsTool>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-		<Version>2024.711.1933</Version>
+		<Version>2024.711.2013</Version>
 		<Authors>Andrei Ignat</Authors>
 		<Description>Implement IFormattable for a class</Description>
 		<Title>RSCG IFormattable Common</Title>

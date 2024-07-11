@@ -3,7 +3,7 @@ namespace @Model.nameSpace {
 
     partial class @Model.name {
         public string ToString(string format){
-            return ToString(format, null);
+            return ToString(format, System.Globalization.CultureInfo.CurrentCulture);
         }
         public string ToString(string format, IFormatProvider provider) {
             if (String.IsNullOrEmpty(format)) format = "G";
