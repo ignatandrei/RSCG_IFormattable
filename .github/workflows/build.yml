@@ -30,4 +30,22 @@ jobs:
         cd src
         dotnet tool restore
         dotnet r pack
+
+
+    - name: 'Upload nuget'
+      uses: actions/upload-artifact@v2
+      with:
+        name: Nuget_${{github.run_number}}
+        path: src/PACK
+        retention-days: 1
+  
+    - name: push to nuget
+      if: startsWith(github.ref, 'refs/tags/v') # This line ensures the step runs only if a tag version is present
+      run: |
+        dir src/PACK/*.*
+        echo '1'
+        dir src/PACK/*.symbols.nupkg  
+        echo '2'
+        dotnet nuget push src\PACK\*.symbols.nupkg --api-key  ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+  
     
