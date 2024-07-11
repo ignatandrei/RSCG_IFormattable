@@ -1,0 +1,35 @@
+@inherits RazorBlade.PlainTextTemplate<RSCG_IFormattable.InfoClass>;
+namespace @Model.nameSpace {
+
+    partial class @Model.name {
+        public string ToString(string format){
+            return ToString(format, null);
+        }
+        public string ToString(string format, IFormatProvider provider) {
+            if (String.IsNullOrEmpty(format)) format = "G";
+            if (provider == null) provider = System.Globalization.CultureInfo.CurrentCulture;
+            string retValue=format;
+            if(format=="G") {
+                retValue ="";
+@foreach (var item in Model.propsWithGet)
+{
+    <text>
+        retValue += @item.Name + " = " + @item.Name + ";";
+    </text>
+}
+    return retValue;
+            }
+            @foreach(var item in Model.propsWithGet) {
+                <text>
+                    if(format.Contains("{@item.Name}")){
+                        var val = @item.Name.ToString();
+                        retValue=retValue.Replace("{@item.Name}", val.ToString());
+                    }
+                </text>   
+            }
+            return retValue;
+        }
+    }
+
+
+}
