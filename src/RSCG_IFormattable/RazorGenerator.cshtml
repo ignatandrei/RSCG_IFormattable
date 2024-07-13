@@ -28,6 +28,7 @@ namespace @Model.nameSpace {
                 }
                 <text>
                     if(format.Contains("{@item.Name}")){
+                        //TODO : if @item.AdmitIFormattable is true, use IFormattable
                         var val = @item.Name.ToString();
                         retValue=retValue.Replace("{@item.Name}", @val);
                     }

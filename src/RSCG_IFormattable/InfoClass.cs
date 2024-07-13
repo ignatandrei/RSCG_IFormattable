@@ -27,13 +27,14 @@ internal class PropertyGet
 {
     internal string Name { get; private set; }
     public bool AdmitNulls { get; private set; }
-    public bool ArrayOfIFormattable { get; private set; }
+    public bool AdmitIFormattable { get; private set; }
+
     public PropertyGet(IPropertySymbol it)
     {
         this.Name = it.Name;
         
         var gettype = it.GetMethod!.ReturnType;
         AdmitNulls = gettype.IsReferenceType || gettype.Name.ToLower()=="string" || gettype.Name.ToLower() == "system.string";
-        
+        AdmitIFormattable= gettype.Interfaces.Any(it => it.Name == "IFormattable");
     }
 }
