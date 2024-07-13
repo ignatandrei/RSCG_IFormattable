@@ -14,7 +14,7 @@ namespace @Model.nameSpace {
 @foreach (var item in Model.propsWithGet)
 {
     <text>
-        retValue += @item.Name + " = " + @item.Name + ";";
+        retValue += "@item.Name = " + @item.Name + ";";
     </text>
 }
     return retValue;

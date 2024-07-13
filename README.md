@@ -5,8 +5,8 @@ Roslyn Code Generator for IFormattable
 Add to your csproj file:
 ```xml
 <ItemGroup>
-  <PackageReference Include="RSCG_IFormattable" Version="2024.713.1138" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-  <PackageReference Include="RSCG_IFormattableCommon" Version="2024.713.1138" />
+  <PackageReference Include="RSCG_IFormattable" Version="2024.713.1446" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  <PackageReference Include="RSCG_IFormattableCommon" Version="2024.713.1446" />
 </ItemGroup>
 ```
 

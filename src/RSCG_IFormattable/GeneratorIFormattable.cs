@@ -30,6 +30,7 @@ public class GeneratorIFormattable : IIncrementalGenerator
 
         foreach (var item in source)
         {
+            //TODO: Add json serializer
             var gen = new RazorGenerator(item);
             var data = gen.Render();
             spc.AddSource($"{item.name}.gen.cs", data);
