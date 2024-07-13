@@ -19,14 +19,22 @@ namespace @Model.nameSpace {
 }
     return retValue;
             }
+            //replace items without IFormattable
             @foreach(var item in Model.propsWithGet) {
+                bool isNullable = item.AdmitNulls;
+                string val = "val.ToString()";
+                if(isNullable){
+                    val = @"val?.ToString()??""""";
+                }
                 <text>
                     if(format.Contains("{@item.Name}")){
                         var val = @item.Name.ToString();
-                        retValue=retValue.Replace("{@item.Name}", val.ToString());
+                        retValue=retValue.Replace("{@item.Name}", @val);
                     }
                 </text>   
             }
+
+
             return retValue;
         }
     }
